@@ -13,3 +13,5 @@ find_package(hsa-runtime64 PATHS /opt/rocm REQUIRED)
 
 add_library(hsa_platform hsa_platform.cpp hsa_platform.h log.h)
 target_link_libraries(hsa_platform PUBLIC hsa-runtime64::hsa-runtime64)
+add_executable(sync_repo sync_repo.cpp)
+target_link_libraries(sync_repo PRIVATE hsa_platform)
